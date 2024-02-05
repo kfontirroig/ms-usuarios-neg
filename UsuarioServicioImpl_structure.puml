@@ -1,0 +1,256 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.banco.usuarios.service.UsuarioServicioImpl",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_93503675 { 
+   	label=banco
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1409304280 { 
+   	label=usuarios
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   JwtUtil334538091[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)JwtUtil</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   EXPIRATION_TIME: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SECRET: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ createToken(usuario: Usuario): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Usuario1773204192[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Usuario</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   created: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   email: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: UUID [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isActive: Boolean [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastLogin: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   modified: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   password: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   phones: List&lt;Telefono&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   token: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ builder(): UsuarioBuilder</TD></TR>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ prePersist()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ preUpdate()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioController1162520133[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioController</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   usuarioServicio: UsuarioServicio [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ crearUsuario(usuarioCreationDto: UsuarioCreationDto): ResponseEntity&lt;UsuarioResponseDto&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioMapper877806230[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioMapper</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ fromTelefonoDtoList(telefonoDtos: List&lt;TelefonoDto&gt;, usuario: Usuario): List&lt;Telefono&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromUsuarioCreationDto(usuarioCreationDto: UsuarioCreationDto): Usuario</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toUsuarioResponseDto(usuario: Usuario): UsuarioResponseDto</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioResponseDto1257701206[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioResponseDto</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   created: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: UUID [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isActive: Boolean [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastLogin: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   modified: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   token: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ builder(): UsuarioResponseDtoBuilder</TD></TR>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioServicioImpl295588692[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioServicioImpl</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   jwtUtil: JwtUtil [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   passwordEncoder: BCryptPasswordEncoder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   usuarioMapper: UsuarioMapper [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   usuarioRepositorio: UsuarioRepositorio [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   usuarioValidator: UsuarioValidator [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ crearUsuario(usuarioCreationDto: UsuarioCreationDto): UsuarioResponseDto</TD></TR>
+<TR><TD ALIGN="LEFT" >- encryptPassword(rawPassword: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioValidator334538091[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioValidator</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   EMAIL_PATTERN: Pattern [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   PASSWORD_PATTERN: Pattern [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   patronConfig: UsuarioValidatorPatronesConfig [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ validarCreationUsuarioDto(usuarioCreationDto: UsuarioCreationDto, usuarioEnBD: Usuario): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ validarCreationUsuarioDto(usuarioCreationDto: UsuarioCreationDto): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UsuarioValidatorPatronesConfig1151237525[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UsuarioValidatorPatronesConfig</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   email: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   password: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+UsuarioController1162520133 -> UsuarioServicioImpl295588692[label="usuarioServicio
+[0..1]", arrowhead=none];
+UsuarioMapper877806230 -> Usuario1773204192[label="fromUsuarioCreationDto() -> builder()"];
+UsuarioMapper877806230 -> UsuarioResponseDto1257701206[label="toUsuarioResponseDto() -> builder()"];
+UsuarioServicioImpl295588692 -> JwtUtil334538091[label="jwtUtil
+[0..1]"];
+UsuarioServicioImpl295588692 -> UsuarioMapper877806230[label="usuarioMapper
+[0..1]"];
+UsuarioServicioImpl295588692 -> UsuarioValidator334538091[label="usuarioValidator
+[0..1]"];
+UsuarioValidator334538091 -> UsuarioValidatorPatronesConfig1151237525[label="patronConfig
+[0..1]"];
+    
+}
+@enduml

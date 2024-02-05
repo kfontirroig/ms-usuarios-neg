@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  tomcat.uri-encoding: 'UTF-8'
+
+spring:
+  http:
+    encoding.charset: 'UTF-8'
+    encoding.enabled: true
+    encoding.force: true
+  datasource.url: jdbc:h2:mem:testdb
+  datasource.driverClassName: org.h2.Driver
+  datasource.username: sa
+  datasource.password: SoSecretBruh
+  h2.console.enabled: true
+  jpa.database-platform: org.hibernate.dialect.H2Dialect
+  jpa.show-sql: true
+  jpa.hibernate.ddl-auto: create-drop
+
+logging.level.org.hibernate.SQL: DEBUG
+logging.level.org.hibernate.type.descriptor.sql: TRACE
+logging.level.com.banco.usuarios :  DEBUG
+
+
+ #JWT configuration
+  #Secreto
+jwt.secret: ThisIsASecret
+  #Expiraciï¿½n en segundos (3600s :  1hr)
+jwt.expiration: 900
+
+#Patron Config
+patron:
+  email: '^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,6}$'
+  #Una Mayuscula, letras minusculas, y dos numeros
+  password: '^(?=.*[A-Z])(?=.*[a-z])(?=.*\d.*\d).+$'
+

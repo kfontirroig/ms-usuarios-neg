@@ -1,0 +1,252 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "com.banco.usuarios.service.UsuarioServicioImpl#crearUsuario(UsuarioCreationDto)",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": false,
+    "showMethodParametersNames": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 2,
+    "showCallOrder": false,
+    "edgeMode": "MethodsOnly", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "com.banco.usuarios.service.UsuarioServicioImpl",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_93503675 { 
+   	label=banco
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1409304280 { 
+   	label=usuarios
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   subgraph cluster_1553235064 { 
+   	label=UsuarioResponseDto
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   UsuarioResponseDto1257701206XXXbuilder0[
+	label="+ builder()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioResponseDto
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_183539198 { 
+   	label=UsuarioServicioImpl
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   UsuarioServicioImpl295588692XXXcrearUsuario1329297774[
+	label="+ crearUsuario()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioServicioImpl
+
+null"
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1969000967 { 
+   	label=UsuarioValidator
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   UsuarioValidator334538091XXXvalidarCreationUsuarioDto2113210168[
+	label="+ validarCreationUsuarioDto()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioValidator
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_2119461227 { 
+   	label=UsuarioMapper
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   UsuarioMapper877806230XXXfromTelefonoDtoList702038903[
+	label="+ fromTelefonoDtoList()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioMapper
+
+null"
+	fontcolor=darkgreen
+];
+
+UsuarioMapper877806230XXXfromUsuarioCreationDto1329297774[
+	label="+ fromUsuarioCreationDto()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioMapper
+
+null"
+	fontcolor=darkgreen
+];
+
+UsuarioMapper877806230XXXtoUsuarioResponseDto1531808526[
+	label="+ toUsuarioResponseDto()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioMapper
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_21694522 { 
+   	label=JwtUtil
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   JwtUtil334538091XXXcreateToken1531808526[
+	label="+ createToken()"
+	style=filled
+	fillcolor=white
+	tooltip="JwtUtil
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_742632960 { 
+   	label=Usuario
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Usuario1773204192XXXbuilder0[
+	label="+ builder()"
+	style=filled
+	fillcolor=white
+	tooltip="Usuario
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_792858143 { 
+   	label=UsuarioController
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   UsuarioController1162520133XXXcrearUsuario1329297774[
+	label="+ crearUsuario()"
+	style=filled
+	fillcolor=white
+	tooltip="UsuarioController
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+} 
+
+'edges    
+UsuarioController1162520133XXXcrearUsuario1329297774 -> UsuarioServicioImpl295588692XXXcrearUsuario1329297774;
+UsuarioMapper877806230XXXfromUsuarioCreationDto1329297774 -> Usuario1773204192XXXbuilder0;
+UsuarioMapper877806230XXXfromUsuarioCreationDto1329297774 -> UsuarioMapper877806230XXXfromTelefonoDtoList702038903;
+UsuarioMapper877806230XXXtoUsuarioResponseDto1531808526 -> UsuarioResponseDto1257701206XXXbuilder0;
+UsuarioServicioImpl295588692XXXcrearUsuario1329297774 -> JwtUtil334538091XXXcreateToken1531808526;
+UsuarioServicioImpl295588692XXXcrearUsuario1329297774 -> UsuarioMapper877806230XXXfromUsuarioCreationDto1329297774;
+UsuarioServicioImpl295588692XXXcrearUsuario1329297774 -> UsuarioMapper877806230XXXtoUsuarioResponseDto1531808526;
+UsuarioServicioImpl295588692XXXcrearUsuario1329297774 -> UsuarioValidator334538091XXXvalidarCreationUsuarioDto2113210168;
+    
+}
+@enduml
